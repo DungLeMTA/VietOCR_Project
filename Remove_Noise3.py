@@ -6,7 +6,7 @@ from imutils.perspective import four_point_transform
 # pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 # Load image, convert to HSV, color threshold to get mask
-image = cv2.imread('3.jpg')
+image = cv2.imread('1.png')
 hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 lower = np.array([0, 0, 0])
 upper = np.array([100, 175, 110])

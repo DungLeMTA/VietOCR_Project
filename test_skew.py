@@ -99,7 +99,7 @@ class Deskew:
 
 if __name__ == '__main__':
 
-	img = './test/vanban1_skew.jpg'
+	img = 'vanban2_deskew.png'
 	a = cv2.imread(img)
 
 	# b = Deskew(a)
@@ -107,7 +107,7 @@ if __name__ == '__main__':
 	# print(rotate,',',rot_angle)
 	# c = Image.fromarray(rotate)
 	# c.show(title='result')
-	# c.save('vanban1_deskew.png')
+	# c.save('vanban2_deskew.png')
 	#
 	# cv2.imshow('a',d)
 	# cv2.waitKey(0)

@@ -3,7 +3,7 @@ import numpy as np
 import time
 
 start = time.time()
-image = cv2.imread('./test/rr_skew.jpg')
+image = cv2.imread('./test/vanban1.jpg')
 #cv2.imshow('orig',image)
 #cv2.waitKey(0)
 
