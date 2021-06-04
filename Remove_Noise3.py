@@ -7,10 +7,13 @@ from imutils.perspective import four_point_transform
 
 # Load image, convert to HSV, color threshold to get mask
 image = cv2.imread('1.png')
-hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV_FULL)
+cv2.imshow('',hsv)
+cv2.waitKey(0)
 lower = np.array([0, 0, 0])
 upper = np.array([100, 175, 110])
 mask = cv2.inRange(hsv, lower, upper)
+# mask = cv2.inRange(hsv, upper, lower)
 
 # Morph close to connect individual text into a single contour
 kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (20,3))

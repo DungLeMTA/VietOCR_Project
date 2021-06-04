@@ -1,7 +1,7 @@
 import cv2
 import imutils
 import pytesseract
-from docx.enum.table import WD_TABLE_ALIGNMENT
+# from docx.enum.table import WD_TABLE_ALIGNMENT
 
 def print_image(image):
     image = imutils.resize(image, width=500)
@@ -123,7 +123,7 @@ def add_table_text(table,rows,img,cell_infos):
 
                 row_cells = table.rows[row].cells
                 p = row_cells[col].add_paragraph(string)
-                p.alignment = WD_TABLE_ALIGNMENT.CENTER
+                # p.alignment = WD_TABLE_ALIGNMENT.CENTER
                 all_text = all_text + string + " "
             except:
                 print("-----")

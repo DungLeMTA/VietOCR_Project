@@ -28,8 +28,20 @@ def get_table_coordinate(image,scale=2):
 	"""
 	# image = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
 	kernel = np.ones((3, 3), np.uint8)
+	# ret, thresh_value = cv2.threshold(
+	# 	table_image_contour, 180, 255, cv2.THRESH_BINARY_INV)
 	image = cv2.dilate(image, kernel, iterations=1)
-	(h1, w1) = image.shape
+	if len(image.shape) == 2:
+		gray_img = image
+		print(2)
+	elif len(image.shape) == 3:
+		gray_img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+		print(3)
+	# print(gray_img.shape)
+
+	# height = int(gray_img.shape[0])
+	# width = int(gray_img.shape[1])
+	(h1, w1) = gray_img.shape
 	blured = cv2.GaussianBlur(image, (3, 3), 0)
 	canny_image = cv2.Canny(blured, 100, 250)
 	if imutils.is_cv2() or imutils.is_cv4():
@@ -87,3 +99,11 @@ def get_table_coordinate(image,scale=2):
 	#     cv2.rectangle(newimage, (x, y), (x + w, y + h), 255, 1)
 	# printImage(newimage)
 	return list_result, list_big_box
+
+
+
+img = "B:\PycharmProjects\VietOCR_Project\img_2.png"
+image = cv2.imread(img)
+
+a,b=get_table_coordinate(image,2)
+print(a,b)

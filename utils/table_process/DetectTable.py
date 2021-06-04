@@ -7,8 +7,10 @@ class DetectTable(object):
     def run(self, choose,scale_percent=50,scale=30):
         if len(self.src_img.shape) == 2:
             gray_img = self.src_img
+            print(2)
         elif len(self.src_img.shape) == 3:
             gray_img = cv2.cvtColor(self.src_img, cv2.COLOR_BGR2GRAY)
+            print(3)
         # print(gray_img.shape)
 
         width = int(gray_img.shape[1] * scale_percent / 100)
@@ -51,7 +53,7 @@ class DetectTable(object):
         ## mask auto fill
         mask_img_autofill = h_dilate_img_autofill + v_dilate_img_autofill
         if choose == 1:
-            # cv2.imshow("mask.jpg", mask_img_autofill)
+            cv2.imshow("mask.jpg", mask_img_autofill)
             return mask_img_autofill
 
     @staticmethod
